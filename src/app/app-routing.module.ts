@@ -16,6 +16,10 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
+        path: "sayfa/:page",
+        component: HomeComponent,
+      },
+      {
         path: "hakkimda",
         component: AboutMeComponent,
       },
