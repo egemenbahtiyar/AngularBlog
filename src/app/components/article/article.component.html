@@ -33,7 +33,7 @@
             id:item.id,
             commentCount:item.commentCount,
             viewCount:item.viewCount,
-            categoryName:item.category.name,
+            categoryName:item.category.categoryName,
             publishDate:item.publishDate,
             contentSummary:item.contentSummary,
             picture:item.picture,
@@ -81,7 +81,7 @@
             <span class="badge badge-pill badge-primary">
                 <i class="fa fa-comment"></i>{{commentCount}}
             </span>
-            <a [routerLink]="['/makale/,id']" class="btn btn-primary btn-sm float-right">
+            <a [routerLink]="['/makale', id]" class="btn btn-primary btn-sm float-right">
                 devamını oku
             </a>
         </div>

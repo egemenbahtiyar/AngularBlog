@@ -1,3 +1,4 @@
+import { ArticleComponent } from "./pages/article/article.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: "sayfa/:page",
         component: HomeComponent,
+      },
+      {
+        path: "makale/:id",
+        component: ArticleComponent,
       },
       {
         path: "hakkimda",
