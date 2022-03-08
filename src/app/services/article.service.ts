@@ -8,7 +8,7 @@ import { tap } from "rxjs/operators";
 export class ArticleService {
   constructor(private httpClient: HttpClient) {}
   private apiUrl = "https://localhost:44332/api/Articles";
-  private loading = true;
+  public loading = true;
 
   getArticles(page: number, pageSize: number) {
     let api = `${this.apiUrl}/${page}/${pageSize}`;
