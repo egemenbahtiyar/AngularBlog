@@ -22,7 +22,9 @@ export class ArticleComponent implements OnInit {
     public articleService: ArticleService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.articleService.loading = true;
+  }
   pageChanged(event) {
     this.articleService.loading = true;
     this.page = event;

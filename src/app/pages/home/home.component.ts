@@ -1,24 +1,30 @@
 import { ArticleService } from "./../../services/article.service";
 import { Article } from "./../../models/article";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   page = 1;
   articles: Article[] = [];
   totalCount: number;
   pageSize = 5;
   loadingItem: number = 5;
+  ajax;
 
   constructor(
     private articleService: ArticleService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  ngOnDestroy(): void {
+    if (this.ajax != null) {
+      this.ajax.unsubscribe();
+    }
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -34,7 +40,7 @@ export class HomeComponent implements OnInit {
       }
       this.articles = [];
       this.totalCount = 0;
-      this.articleService
+      this.ajax = this.articleService
         .getArticles(this.page, this.pageSize)
         .subscribe((data) => {
           console.log(data);
