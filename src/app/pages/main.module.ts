@@ -12,6 +12,7 @@ import { ComponentsModule } from "./../components/components.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ArticleComponent } from './article/article.component';
+import { CategoryArticlesComponent } from './category-articles/category-articles.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ArticleComponent } from './article/article.component';
     MainLayoutComponent,
     MainNavComponent,
     ArticleComponent,
+    CategoryArticlesComponent,
   ],
   imports: [
     CommonModule,

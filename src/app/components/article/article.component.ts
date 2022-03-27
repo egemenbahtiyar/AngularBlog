@@ -14,6 +14,7 @@ export class ArticleComponent implements OnInit {
   @Input() page;
   @Input() pageSize;
   @Input() loadingItem;
+  @Input() typeList;
   default_article: string = "assets/article_empty.jpeg";
 
   constructor(
@@ -21,6 +22,13 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     public articleService: ArticleService
   ) {}
+  createRange() {
+    var items: number[] = [];
+    for (let index = 1; index <= this.loadingItem; index++) {
+      items.push(index);
+    }
+    return items;
+  }
 
   ngOnInit() {
     this.articleService.loading = true;
@@ -28,13 +36,20 @@ export class ArticleComponent implements OnInit {
   pageChanged(event) {
     this.articleService.loading = true;
     this.page = event;
-    this.router.navigateByUrl(`/sayfa/${this.page}`);
-  }
-  createRange() {
-    var items: number[] = [];
-    for (let index = 1; index <= this.loadingItem; index++) {
-      items.push(index);
+
+    switch (this.typeList) {
+      case "home":
+        this.router.navigateByUrl(`/sayfa/${this.page}`);
+        break;
+      case "category":
+        let categoryName = this.route.snapshot.paramMap.get("name");
+        let categoryId = this.route.snapshot.paramMap.get("id");
+        this.router.navigateByUrl(
+          `/kategori/${categoryName}/${categoryId}/sayfa/${this.page}`
+        );
+        break;
+      default:
+        break;
     }
-    return items;
   }
 }
