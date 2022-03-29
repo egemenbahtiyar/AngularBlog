@@ -1,3 +1,4 @@
+import { Archive } from "./../models/archive";
 import { ArticlePg } from "./../models/article-pg";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -47,5 +48,22 @@ export class ArticleService {
   getGetArticlesByMostViewed() {
     let api = `${this.apiUrl}/GetArticlesByMostViewed`;
     return this.httpClient.get<Article[]>(api);
+  }
+  getArticlesArchive() {
+    let api = `${this.apiUrl}/GetArticlesArchive`;
+    return this.httpClient.get<Archive[]>(api);
+  }
+  getGetArticleArchiveList(
+    year: number,
+    month: number,
+    page: number,
+    pageSize: number
+  ) {
+    let api = `${this.apiUrl}/GetArticleArchiveList/${year}/${month}/${page}/${pageSize}`;
+    return this.httpClient.get<ArticlePg>(api).pipe(
+      tap((x) => {
+        this.loading = false;
+      })
+    );
   }
 }
