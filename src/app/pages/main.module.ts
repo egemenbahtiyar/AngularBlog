@@ -13,6 +13,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ArticleComponent } from './article/article.component';
 import { CategoryArticlesComponent } from './category-articles/category-articles.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CategoryArticlesComponent } from './category-articles/category-articles
     MainNavComponent,
     ArticleComponent,
     CategoryArticlesComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,

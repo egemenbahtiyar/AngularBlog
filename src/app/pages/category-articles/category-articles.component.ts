@@ -40,7 +40,6 @@ export class CategoryArticlesComponent implements OnInit {
       this.ajax = this.articleService
         .getArticlesWithCategory(this.CategoryId, this.page, this.pageSize)
         .subscribe((data) => {
-          console.log(data);
           this.articles = data.articles;
           this.totalCount = data.totalCount;
         });

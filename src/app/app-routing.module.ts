@@ -1,3 +1,4 @@
+import { SearchComponent } from "./pages/search/search.component";
 import { CategoryArticlesComponent } from "./pages/category-articles/category-articles.component";
 import { ArticleComponent } from "./pages/article/article.component";
 import { NgModule } from "@angular/core";
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: "iletisim",
         component: ContactComponent,
+      },
+      {
+        path: "arama/sayfa/:page",
+        component: SearchComponent,
       },
       {
         path: "kategori/:name/:id",

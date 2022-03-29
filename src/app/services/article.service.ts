@@ -20,6 +20,14 @@ export class ArticleService {
       })
     );
   }
+  getSearchArticles(sarchText: string, page: number, pageSize: number) {
+    let api = `${this.apiUrl}/SearchArticles/${sarchText}/${page}/${pageSize}`;
+    return this.httpClient.get<ArticlePg>(api).pipe(
+      tap((x) => {
+        this.loading = false;
+      })
+    );
+  }
   getArticle(id: number) {
     let api = `${this.apiUrl}/${id}`;
     return this.httpClient.get<Article>(api).pipe(
