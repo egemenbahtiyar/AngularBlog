@@ -6,12 +6,14 @@ import { RouterModule } from "@angular/router";
 import { PageTitleComponent } from "./page-title/page-title.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { ArticleComponent } from "./article/article.component";
+import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-article-most-view.component";
 @NgModule({
   declarations: [
     MenuCategoryComponent,
     PageTitleComponent,
     ArticleComponent,
     UrlformatPipe,
+    MenuArticleMostViewComponent,
   ],
   imports: [CommonModule, RouterModule, NgxPaginationModule],
   exports: [
@@ -19,6 +21,7 @@ import { ArticleComponent } from "./article/article.component";
     PageTitleComponent,
     ArticleComponent,
     UrlformatPipe,
+    MenuArticleMostViewComponent,
   ],
 })
 export class ComponentsModule {}
