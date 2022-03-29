@@ -11,6 +11,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { ComponentsModule } from "./../components/components.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { ArticleComponent } from './article/article.component';
+import { CategoryArticlesComponent } from './category-articles/category-articles.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { CommonModule } from "@angular/common";
     ContactComponent,
     MainLayoutComponent,
     MainNavComponent,
+    ArticleComponent,
+    CategoryArticlesComponent,
+    SearchComponent,
   ],
   imports: [
     CommonModule,
