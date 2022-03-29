@@ -1,3 +1,4 @@
+import { ArchiveComponent } from "./pages/archive/archive.component";
 import { SearchComponent } from "./pages/search/search.component";
 import { CategoryArticlesComponent } from "./pages/category-articles/category-articles.component";
 import { ArticleComponent } from "./pages/article/article.component";
@@ -25,6 +26,14 @@ const routes: Routes = [
       {
         path: "makale/:title/:id",
         component: ArticleComponent,
+      },
+      {
+        path: "arsiv/:year/:month",
+        component: ArchiveComponent,
+      },
+      {
+        path: "arsiv/:year/:month/sayfa/:page",
+        component: ArchiveComponent,
       },
       {
         path: "hakkimda",

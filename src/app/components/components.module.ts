@@ -7,6 +7,7 @@ import { PageTitleComponent } from "./page-title/page-title.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { ArticleComponent } from "./article/article.component";
 import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-article-most-view.component";
+import { MenuArchiveComponent } from "./menu-archive/menu-archive.component";
 @NgModule({
   declarations: [
     MenuCategoryComponent,
@@ -14,6 +15,7 @@ import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-arti
     ArticleComponent,
     UrlformatPipe,
     MenuArticleMostViewComponent,
+    MenuArchiveComponent,
   ],
   imports: [CommonModule, RouterModule, NgxPaginationModule],
   exports: [
@@ -22,6 +24,7 @@ import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-arti
     ArticleComponent,
     UrlformatPipe,
     MenuArticleMostViewComponent,
+    MenuArchiveComponent,
   ],
 })
 export class ComponentsModule {}
