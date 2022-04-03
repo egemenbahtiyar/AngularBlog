@@ -1,3 +1,8 @@
+import { AdminArticleAddComponent } from "./admin-pages/admin-article/admin-article-add/admin-article-add.component";
+import { AdminArticleUpdateComponent } from "./admin-pages/admin-article/admin-article-update/admin-article-update.component";
+import { AdminArticleListComponent } from "./admin-pages/admin-article/admin-article-list/admin-article-list.component";
+import { AdminArticleComponent } from "./admin-pages/admin-article/admin-article/admin-article.component";
+import { AdminHomeComponent } from "./admin-pages/admin-home/admin-home.component";
 import { ArchiveComponent } from "./pages/archive/archive.component";
 import { SearchComponent } from "./pages/search/search.component";
 import { CategoryArticlesComponent } from "./pages/category-articles/category-articles.component";
@@ -60,6 +65,34 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    children: [
+      {
+        path: "",
+        component: AdminHomeComponent,
+      },
+      {
+        path: "anasayfa",
+        component: AdminHomeComponent,
+      },
+      {
+        path: "makale",
+        component: AdminArticleComponent,
+        children: [
+          {
+            path: "liste",
+            component: AdminArticleListComponent,
+          },
+          {
+            path: "guncelle/:id",
+            component: AdminArticleUpdateComponent,
+          },
+          {
+            path: "ekle",
+            component: AdminArticleAddComponent,
+          },
+        ],
+      },
+    ],
   },
 ];
 
