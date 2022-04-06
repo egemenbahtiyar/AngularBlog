@@ -16,6 +16,7 @@ export class AdminArticleListComponent implements OnInit {
     "commentCount",
     "viewCount",
     "publishDate",
+    "action",
   ];
   dataSource;
   articles: Article[];
