@@ -11,12 +11,23 @@ import {
   AbstractControl,
   Validators,
 } from "@angular/forms";
+import * as DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
+
 @Component({
   selector: "app-admin-article-add",
   templateUrl: "./admin-article-add.component.html",
   styleUrls: ["./admin-article-add.component.css"],
 })
 export class AdminArticleAddComponent implements OnInit {
+  public Editor = DecoupledEditor;
+  public onReady(editor) {
+    editor.ui
+      .getEditableElement()
+      .parentElement.insertBefore(
+        editor.ui.view.toolbar.element,
+        editor.ui.getEditableElement()
+      );
+  }
   fileData: File = null;
   picture: string = null;
   articleForm: FormGroup;

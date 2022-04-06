@@ -45,7 +45,7 @@
         </span>
     </div>
     <div class="card-body">
-        <div [innerHTML]="article.contentMain">
+        <div class="ck ck-content" [innerHTML]="domSanitzer.bypassSecurityTrustHtml(article.contentMain)">
 
         </div>
 
