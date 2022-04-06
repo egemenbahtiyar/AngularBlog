@@ -3,7 +3,7 @@ import { Article } from "./../../models/article";
 import { ActivatedRoute } from "@angular/router";
 import { ArticleService } from "./../../services/article.service";
 import { Component, OnInit } from "@angular/core";
-
+import { DomSanitizer } from "@angular/platform-browser";
 @Component({
   selector: "app-article-detail",
   templateUrl: "./article.component.html",
@@ -15,7 +15,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     public articleService: ArticleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public domSanitzer: DomSanitizer
   ) {}
 
   ngOnInit() {
