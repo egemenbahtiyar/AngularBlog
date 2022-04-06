@@ -1,1 +1,70 @@
-<p>admin-article-add works!</p>
+<div class="row">
+    <div class="col-md-9">
+        <form *ngIf="info==null" (ngSubmit)="onSubmit()" [formGroup]="articleForm">
+            <div class="form-container">
+
+                <mat-form-field>
+                    <input type="text" placeholder="kategori seç" formControlName="category" matInput
+                        [matAutocomplete]="auto" />
+                    <mat-error *ngIf="getControls.category.invalid">
+                        {{myValidationService.getValidationMessages(getControls.category,"kategori")}}
+
+                    </mat-error>
+
+                    <mat-autocomplete [displayWith]="displayCategoryName" #auto="matAutocomplete">
+                        <mat-option *ngFor="let item of categories" [value]="item">
+                            {{item.categoryName}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="text" placeholder="Makale başlık" formControlName="title" matInput />
+                    <mat-error *ngIf="getControls.category.invalid">
+                        {{myValidationService.getValidationMessages(getControls.title,"Makale başlık")}}
+
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="text" placeholder="Makale içerik özet" formControlName="contentSummary" matInput />
+                    <mat-error *ngIf="getControls.category.invalid">
+                        {{myValidationService.getValidationMessages(getControls.contentSummary,"Makale içerik özet")}}
+
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input type="text" placeholder="Makale içerik" formControlName="contentMain" matInput />
+                    <mat-error *ngIf="getControls.category.invalid">
+                        {{myValidationService.getValidationMessages(getControls.contentMain,"Makale içerik")}}
+
+                    </mat-error>
+                </mat-form-field>
+
+                <button type="submit" [disabled]="loading" color="primary" mat-raised-button>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"></span>
+                    Gönder
+                </button>
+            </div>
+
+        </form>
+        <div role="alert" *ngIf="info!=null" class="alert alert-danger mt-3">
+            {{info}}
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-header">
+                Makale Resim
+            </div>
+            <div class="card-body">
+                <img [src]="picture ||'assets/article_empty.jpeg'" class="img-thumbnail">
+            </div>
+        </div>
+        <div class="card-footer">
+            <input (change)="upload($event)" type="file" class="form-control" name="image">
+        </div>
+
+    </div>
+</div>
