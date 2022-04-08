@@ -35,6 +35,7 @@ export class AdminArticleUpdateComponent implements OnInit {
   info: string = null;
   categories: Category[];
   articleId: number;
+  contentLoading: boolean = true;
 
   constructor(
     private articleService: ArticleService,
@@ -54,6 +55,7 @@ export class AdminArticleUpdateComponent implements OnInit {
       this.getControls.contentSummary.setValue(data.contentSummary);
       this.getControls.contentMain.setValue(data.contentMain);
       this.getControls.category.setValue(data.category);
+      this.contentLoading = false;
     });
 
     this.articleForm = new FormGroup({
