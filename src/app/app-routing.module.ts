@@ -1,3 +1,4 @@
+import { AuthGuardService } from "./services/auth-guard.service";
 import { AdminArticleAddComponent } from "./admin-pages/admin-article/admin-article-add/admin-article-add.component";
 import { AdminArticleUpdateComponent } from "./admin-pages/admin-article/admin-article-update/admin-article-update.component";
 import { AdminArticleListComponent } from "./admin-pages/admin-article/admin-article-list/admin-article-list.component";
@@ -14,6 +15,7 @@ import { AboutMeComponent } from "./pages/about-me/about-me.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { MainLayoutComponent } from "./layout/main-layout/main-layout.component";
 import { AdminLayoutComponent } from "./layout/admin-layout/admin-layout.component";
+import { AdminLoginComponent } from "./pages/admin-login/admin-login.component";
 
 const routes: Routes = [
   {
@@ -49,6 +51,10 @@ const routes: Routes = [
         component: ContactComponent,
       },
       {
+        path: "adminlogin",
+        component: AdminLoginComponent,
+      },
+      {
         path: "arama/sayfa/:page",
         component: SearchComponent,
       },
@@ -65,6 +71,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: "",
