@@ -1,3 +1,4 @@
+import { MaterialModule } from "./../modules/material/material.module";
 import { UrlformatPipe } from "./../pipes/urlformat.pipe";
 import { MenuCategoryComponent } from "./menu-category/menu-category.component";
 import { NgModule } from "@angular/core";
@@ -8,6 +9,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { ArticleComponent } from "./article/article.component";
 import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-article-most-view.component";
 import { MenuArchiveComponent } from "./menu-archive/menu-archive.component";
+import { AddCommentComponent } from "./add-comment/add-comment.component";
 @NgModule({
   declarations: [
     MenuCategoryComponent,
@@ -16,8 +18,9 @@ import { MenuArchiveComponent } from "./menu-archive/menu-archive.component";
     UrlformatPipe,
     MenuArticleMostViewComponent,
     MenuArchiveComponent,
+    AddCommentComponent,
   ],
-  imports: [CommonModule, RouterModule, NgxPaginationModule],
+  imports: [CommonModule, RouterModule, NgxPaginationModule, MaterialModule],
   exports: [
     MenuCategoryComponent,
     PageTitleComponent,
@@ -25,6 +28,7 @@ import { MenuArchiveComponent } from "./menu-archive/menu-archive.component";
     UrlformatPipe,
     MenuArticleMostViewComponent,
     MenuArchiveComponent,
+    AddCommentComponent,
   ],
 })
 export class ComponentsModule {}

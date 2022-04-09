@@ -9,11 +9,11 @@ import { tap } from "rxjs/operators";
 export class CommentService {
   constructor(private httpClient: HttpClient) {}
   private apiUrl = "https://localhost:44332/api/Comments";
-  loading = false;
+  loading: boolean;
 
   addComment(comment: Comment) {
     this.loading = true;
-    return this.httpClient.post(this.apiUrl, comment).pipe(
+    return this.httpClient.post(`${this.apiUrl}`, comment).pipe(
       tap((x) => {
         this.loading = false;
       })
