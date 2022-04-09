@@ -1,0 +1,30 @@
+<div class="card bg-light mt-3">
+    <div class="card-body">
+        <div role="alert" *ngIf="info!=null" class="alert mt-3"
+            [ngClass]="{'alert-primary':success,'alert-danger':!success}">
+            {{info}}
+        </div>
+    </div>
+    <form *ngIf="info==null" (ngSubmit)="onSubmit()" [formGroup]="commentForm">
+        <div class="form-container">
+            <mat-form-field>
+                <input formControlName="name" matInput placeholder="isim...">
+                <mat-error *ngIf="getControls.name.invalid">
+                    {{myValidationService.getValidationMessages(getControls.name,"isim")}}
+
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea formControlName="contentMain" matInput placeholder="yorumunuz..."></textarea>
+                <mat-error *ngIf="getControls.contentMain.invalid">
+                    {{myValidationService.getValidationMessages(getControls.contentMain,"yorum")}}
+                </mat-error>
+            </mat-form-field>
+
+            <button [disabled]="commentService.loading" mat-raised-button color="primary"> <span
+                    *ngIf="commentService.loading" class="spinner-border spinner-border-sm" role="status"></span>
+                Yorum ekle</button>
+        </div>
+    </form>
+</div>
