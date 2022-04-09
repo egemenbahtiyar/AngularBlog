@@ -10,6 +10,7 @@ import { ArticleComponent } from "./article/article.component";
 import { MenuArticleMostViewComponent } from "./menu-article-most-view/menu-article-most-view.component";
 import { MenuArchiveComponent } from "./menu-archive/menu-archive.component";
 import { AddCommentComponent } from "./add-comment/add-comment.component";
+import { ListCommentComponent } from "./list-comment/list-comment.component";
 @NgModule({
   declarations: [
     MenuCategoryComponent,
@@ -19,6 +20,7 @@ import { AddCommentComponent } from "./add-comment/add-comment.component";
     MenuArticleMostViewComponent,
     MenuArchiveComponent,
     AddCommentComponent,
+    ListCommentComponent,
   ],
   imports: [CommonModule, RouterModule, NgxPaginationModule, MaterialModule],
   exports: [
@@ -29,6 +31,7 @@ import { AddCommentComponent } from "./add-comment/add-comment.component";
     MenuArticleMostViewComponent,
     MenuArchiveComponent,
     AddCommentComponent,
+    ListCommentComponent,
   ],
 })
 export class ComponentsModule {}
