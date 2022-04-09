@@ -16,8 +16,8 @@ import { ArticleComponent } from "./article/article.component";
 import { CategoryArticlesComponent } from "./category-articles/category-articles.component";
 import { SearchComponent } from "./search/search.component";
 import { ArchiveComponent } from "./archive/archive.component";
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
+import { FooterNavComponent } from "../nav/footer-nav/footer-nav.component";
 @NgModule({
   declarations: [
     HomeComponent,
@@ -30,6 +30,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     SearchComponent,
     ArchiveComponent,
     AdminLoginComponent,
+    FooterNavComponent,
   ],
   imports: [
     CommonModule,
