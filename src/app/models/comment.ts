@@ -1,7 +1,7 @@
 export class Comment {
   id: number;
   name: string;
-  contentMaim: string;
+  contentMain: string;
   publishDate: Date;
   aritcleId: number;
 }
